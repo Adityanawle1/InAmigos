@@ -3,6 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import CookieBanner from '@/components/layout/CookieBanner';
+import QuickActionFAB from '@/components/feedback/QuickActionFAB';
 import { siteConfig } from '@/content/navigation';
 
 const playfair = Playfair_Display({
@@ -118,6 +119,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <SmoothScroll>{children}</SmoothScroll>
         <CookieBanner />
+        <QuickActionFAB />
       </body>
     </html>
   );
