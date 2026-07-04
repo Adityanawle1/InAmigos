@@ -7,6 +7,8 @@ import StatCounter from '@/components/content/StatCounter';
 import DonationCalculator from '@/components/content/DonationCalculator';
 import TestimonialsSlider from '@/components/content/TestimonialsSlider';
 import FaqAccordion from '@/components/content/FaqAccordion';
+import InteractiveMap from '@/components/content/InteractiveMap';
+import BeforeAfterSlider from '@/components/content/BeforeAfterSlider';
 import { heroSlides, featureCtas, aboutPreview, impactStats, impactBackgroundImage, actionCta } from '@/content/home';
 import { programsList } from '@/content/programs';
 import { teamMembers } from '@/content/team';
@@ -107,6 +109,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Interactive India Map */}
+      <InteractiveMap />
+
       {/* Programs Preview */}
       <section className="py-24 px-6 md:px-12 bg-white">
         <div className="max-w-screen-2xl mx-auto">
@@ -155,6 +160,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Before/After Transformation Slider */}
+      <BeforeAfterSlider />
 
       {/* Testimonials Section */}
       <section className="py-24 px-6 md:px-12 bg-[var(--color-surface-linen)] border-t border-[var(--color-alabaster)] relative">

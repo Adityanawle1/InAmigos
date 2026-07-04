@@ -55,12 +55,12 @@
   --color-tertiary-container: #2D5A3D;
 
   /* === Typography — Font Families === */
-  --font-display: "Source Serif 4", Georgia, serif;
-  --font-section-header: "Source Serif 4", Georgia, serif;
-  --font-impact-number: "Source Serif 4", Georgia, serif;
-  --font-body-lg: var(--font-sans), system-ui, sans-serif;
-  --font-body-md: var(--font-sans), system-ui, sans-serif;
-  --font-label-caps: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-section-header: var(--font-playfair), Georgia, serif;
+  --font-impact-number: var(--font-playfair), Georgia, serif;
+  --font-body-lg: var(--font-plus-jakarta), system-ui, sans-serif;
+  --font-body-md: var(--font-plus-jakarta), system-ui, sans-serif;
+  --font-label-caps: var(--font-plus-jakarta), system-ui, sans-serif;
 
   /* === Spacing === */
   --spacing-base: 8px;
