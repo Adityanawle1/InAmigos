@@ -1,0 +1,16 @@
+{
+    "name": "InAmigos Foundation",
+    "short_name": "InAmigos",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#004D2F",
+    "background_color": "#F5FAF7",
+    "display": "standalone",
+    "start_url": "/",
+    "description": "Together, we can create a more inclusive, compassionate and empowered society."
+}
