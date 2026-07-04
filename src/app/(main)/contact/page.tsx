@@ -3,6 +3,7 @@ import PageHero from '@/components/layout/PageHero';
 import FadeUp from '@/components/feedback/FadeUp';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 import { contactHero, contactInfo } from '@/content/contact';
+import ContactForm from '@/components/content/ContactForm';
 
 export const metadata: Metadata = {
   alternates: {
@@ -63,61 +64,9 @@ export default function ContactPage() {
             </FadeUp>
           </div>
 
-          {/* Right Column: Static Contact Form */}
+          {/* Right Column: Interactive Contact Form */}
           <FadeUp className="lg:col-span-7" delay={120}>
-            <div className="p-8 md:p-12 rounded-[4px] ambient-shadow bg-white h-full border border-[var(--color-alabaster)]">
-              <h2 className="text-section-header-mobile text-[var(--color-primary)] mb-2">
-                Send a Message
-              </h2>
-              <p className="text-body-sm text-[var(--color-on-surface-variant)] mb-8">
-                Fill out the form below or email us directly at <a href={`mailto:${contactInfo.email}`} className="text-[var(--color-accent-terracotta)] font-bold">{contactInfo.email}</a>.
-              </p>
-              
-              {/* Note: This is a static form designed to work with mailto as a fallback since there is no backend API defined */}
-              <form 
-                action={`mailto:${contactInfo.email}`}
-                method="POST"
-                encType="text/plain"
-                className="flex flex-col gap-6"
-              >
-                <div>
-                  <label htmlFor="name" className="block text-label-caps text-[var(--color-stone)] mb-2">Full Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-[4px] px-4 py-3 text-body-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-label-caps text-[var(--color-stone)] mb-2">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-[4px] px-4 py-3 text-body-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-label-caps text-[var(--color-stone)] mb-2">Your Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    className="w-full bg-[var(--color-surface)] border border-[var(--color-outline-variant)] rounded-[4px] px-4 py-3 text-body-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all resize-y"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-[var(--color-primary)] text-white px-8 py-4 rounded-[4px] text-label-caps font-bold hover:bg-[var(--color-primary-container)] transition-colors mt-2"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
+            <ContactForm email={contactInfo.email} />
           </FadeUp>
         </div>
       </section>

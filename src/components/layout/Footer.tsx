@@ -11,12 +11,18 @@ export default function Footer() {
           
           {/* Column 1: Brand & Social */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="inline-block" aria-label={`${siteConfig.name} Home`}>
-              <img 
-                src={siteConfig.logo.footer} 
-                alt={siteConfig.fullName} 
-                className="h-16 w-auto object-contain bg-white p-2 rounded-[4px]"
-              />
+            <Link 
+              href="/" 
+              className="inline-block focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-fixed)] rounded-full" 
+              aria-label={`${siteConfig.name} Home`}
+            >
+              <div className="h-16 w-16 rounded-full overflow-hidden bg-white shadow-md border border-[var(--color-alabaster)] flex items-center justify-center">
+                <img 
+                  src={siteConfig.logo.footer} 
+                  alt={siteConfig.fullName} 
+                  className="w-full h-full object-cover scale-[1.3] origin-center"
+                />
+              </div>
             </Link>
             <p className="text-body-sm text-[var(--color-surface-dim)] leading-relaxed">
               {siteConfig.description}
@@ -121,14 +127,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#1A3D2C] flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] text-[var(--color-surface-dim)]">
+        <div className="pt-8 border-t border-[#1A3D2C] flex flex-col items-center justify-center text-[12px] text-[var(--color-surface-dim)]">
           <p>{siteConfig.copyright}</p>
-          <div className="flex items-center gap-1">
-            <span>Developed by</span>
-            <a href="https://vishoinfotech.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[var(--color-primary-fixed)] transition-colors font-semibold">
-              Visho Infotech
-            </a>
-          </div>
         </div>
       </div>
     </footer>

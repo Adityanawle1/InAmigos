@@ -4,6 +4,9 @@ import Link from 'next/link';
 import FadeUp from '@/components/feedback/FadeUp';
 import HeroCarousel from '@/components/layout/HeroCarousel';
 import StatCounter from '@/components/content/StatCounter';
+import DonationCalculator from '@/components/content/DonationCalculator';
+import TestimonialsSlider from '@/components/content/TestimonialsSlider';
+import FaqAccordion from '@/components/content/FaqAccordion';
 import { heroSlides, featureCtas, aboutPreview, impactStats, impactBackgroundImage, actionCta } from '@/content/home';
 import { programsList } from '@/content/programs';
 import { teamMembers } from '@/content/team';
@@ -25,8 +28,20 @@ export default function HomePage() {
     <>
       <HeroCarousel slides={heroSlides} />
 
+      {/* Dynamic Donation Calculator */}
+      <section className="py-20 px-6 md:px-12 bg-white relative overflow-hidden">
+        {/* Floating background graphics */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full filter blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-accent-terracotta)]/5 rounded-full filter blur-3xl pointer-events-none" />
+        
+        <div className="max-w-screen-2xl mx-auto relative z-10">
+          <DonationCalculator />
+        </div>
+      </section>
+
       {/* About Preview */}
       <section className="py-24 px-6 md:px-12 bg-[var(--color-surface-linen)]">
+
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/3] rounded-[4px] overflow-hidden ambient-shadow">
             <Image
@@ -141,8 +156,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-24 px-6 md:px-12 bg-[var(--color-surface-linen)] border-t border-[var(--color-alabaster)] relative">
+        <div className="max-w-screen-2xl mx-auto">
+          <FadeUp className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[var(--color-accent-terracotta)] text-label-caps tracking-widest font-bold mb-2 block">
+              Voices of Change
+            </span>
+            <h2 className="text-section-header text-[var(--color-primary)]">What People Say About Us</h2>
+          </FadeUp>
+          <TestimonialsSlider />
+        </div>
+      </section>
+
       {/* Volunteers Preview */}
-      <section className="py-24 px-6 md:px-12 bg-[var(--color-surface-linen)]">
+      <section className="py-24 px-6 md:px-12 bg-white">
+
         <div className="max-w-screen-2xl mx-auto">
           <FadeUp className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-section-header text-[var(--color-primary)] mb-4">Our Volunteers</h2>
@@ -179,8 +208,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 bg-[var(--color-surface-linen)] border-t border-[var(--color-alabaster)]">
+        <div className="max-w-screen-2xl mx-auto">
+          <FadeUp className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[var(--color-accent-terracotta)] text-label-caps tracking-widest font-bold mb-2 block">
+              Common Questions
+            </span>
+            <h2 className="text-section-header text-[var(--color-primary)]">Frequently Asked Questions</h2>
+            <p className="text-body-sm text-[var(--color-on-surface-variant)] mt-2">
+              Have doubts? Find quick answers here regarding registrations, tax exemptions, and transparency.
+            </p>
+          </FadeUp>
+          <FaqAccordion />
+        </div>
+      </section>
+
       {/* Action CTA */}
       <section className="py-24 px-6 md:px-12 bg-[var(--color-primary-container)] text-center text-white">
+
         <div className="max-w-3xl mx-auto flex flex-col items-center">
           <FadeUp>
             <h2 className="text-display-mobile mb-6">

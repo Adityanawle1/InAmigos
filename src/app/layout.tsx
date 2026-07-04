@@ -1,24 +1,25 @@
 import type { Metadata } from 'next';
-import { Source_Serif_4, Public_Sans } from 'next/font/google';
+import { Lora, Inter } from 'next/font/google';
 import './globals.css';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import CookieBanner from '@/components/layout/CookieBanner';
 import { siteConfig } from '@/content/navigation';
 
-const sourceSerif = Source_Serif_4({
+const lora = Lora({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
 });
 
-const publicSans = Public_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '600'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-sans',
   display: 'swap',
 });
+
 
 export const metadata: Metadata = {
   title: {
@@ -54,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sourceSerif.variable} ${publicSans.variable}`}>
+    <html lang="en" className={`${lora.variable} ${inter.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

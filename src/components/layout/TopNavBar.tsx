@@ -50,14 +50,21 @@ export default function TopNavBar() {
         {/* Logo */}
         <Link 
           href="/" 
-          className="flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded-[4px]"
+          className="flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded-full transition-all duration-300"
           aria-label={`${siteConfig.name} Home`}
         >
-          <img 
-            src={siteConfig.logo.header} 
-            alt={siteConfig.fullName} 
-            className="h-10 md:h-12 w-auto object-contain"
-          />
+          <div className={cn(
+            "transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] bg-white shadow-[0_4px_20px_rgba(0,40,25,0.08)] hover:shadow-[0_8px_30px_rgba(0,40,25,0.12)] rounded-full border border-[var(--color-alabaster)] overflow-hidden flex items-center justify-center aspect-square",
+            isScrolled 
+              ? "h-12 w-12" 
+              : "h-16 w-16 md:h-20 md:w-20"
+          )}>
+            <img 
+              src={siteConfig.logo.header} 
+              alt={siteConfig.fullName} 
+              className="w-full h-full object-cover scale-[1.3] origin-center"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -71,8 +78,10 @@ export default function TopNavBar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      'text-label-caps underline-reveal py-2',
-                      isActive ? 'text-[var(--color-primary)] font-bold' : 'text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)]'
+                      'text-label-caps underline-reveal py-2 transition-colors duration-300',
+                      isScrolled
+                        ? (isActive ? 'text-[var(--color-primary)] font-bold' : 'text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)]')
+                        : (isActive ? 'text-[var(--color-accent-terracotta)] font-bold' : 'text-white/80 hover:text-white')
                     )}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
@@ -88,7 +97,12 @@ export default function TopNavBar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden p-2 -mr-2 text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded-[4px]"
+          className={cn(
+            "lg:hidden p-2 -mr-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] rounded-[4px] transition-colors duration-300 z-50",
+            isMobileMenuOpen
+              ? "text-[var(--color-on-surface)]"
+              : (isScrolled ? "text-[var(--color-on-surface)]" : "text-white")
+          )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -102,8 +116,8 @@ export default function TopNavBar() {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          'fixed inset-0 bg-white z-40 lg:hidden flex flex-col pt-24 px-6 pb-12 transition-transform duration-300 ease-in-out overflow-y-auto',
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          'fixed inset-0 bg-white/95 backdrop-blur-md z-40 lg:hidden flex flex-col pt-24 px-6 pb-12 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-y-auto',
+          isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
         )}
       >
         <nav className="flex flex-col gap-6 flex-grow">
@@ -116,8 +130,8 @@ export default function TopNavBar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      'text-section-header-mobile block',
-                      isActive ? 'text-[var(--color-primary)]' : 'text-[var(--color-on-surface)]'
+                      'text-section-header-mobile block transition-colors duration-300',
+                      isActive ? 'text-[var(--color-primary)] font-bold' : 'text-[var(--color-on-surface)] hover:text-[var(--color-primary)]'
                     )}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
